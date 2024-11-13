@@ -8,7 +8,7 @@ const { face } = Astro.props
 ---
 
 <div class="faceCard">
-  <img id={face.id} src={face.defaultImg} />
+  <img id={face.id} alt={`${face.id} Image`} src={face.defaultImg} />
 </div>
 
 <style lang="scss">
