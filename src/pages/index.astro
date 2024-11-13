@@ -1,16 +1,69 @@
 ---
+import { faces } from '../data/faces'
+import FaceCard from '../components/FaceCard.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Moving Faces">
   <main>
-    <h1>Moving Faces</h1>
+    <header class="pageHeader">
+      <h1>Moving Faces</h1>
+      <p>(Hover over a face to see the effect)</p>
+    </header>
+
+    <div class="facesWrapper">
+      {
+        faces.map((face) => {
+          return <FaceCard face={face} />
+        })
+      }
+    </div>
   </main>
 </Layout>
 
-<style>
-  h1 {
-    font-weight: 900;
-    font-size: 4rem;
+<style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    align-items: center;
+
+    @media (max-width: 524px) {
+      padding: 20px;
+    }
+  }
+
+  .pageHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h1 {
+      font-weight: 900;
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+
+  .facesWrapper {
+    width: min(100%, var(--content-max-width));
+    // padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    @media (max-width: 524px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 330px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 </style>
