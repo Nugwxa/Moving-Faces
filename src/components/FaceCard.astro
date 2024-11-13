@@ -1,0 +1,28 @@
+---
+import { type Face } from '../data/faces'
+interface Props {
+  face: Face
+}
+
+const { face } = Astro.props
+---
+
+<div class="faceCard">
+  <img id={face.id} src={face.defaultImg} />
+</div>
+
+<style lang="scss">
+  .faceCard {
+    align-items: center;
+    aspect-ratio: 1/1.1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+</style>
