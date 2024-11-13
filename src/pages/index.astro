@@ -22,6 +22,9 @@ import Layout from '../layouts/Layout.astro'
     <footer>That's All 🙂</footer>
   </main>
 
+  <script is:inline type="module" define:vars={{ faces }}>
+    window.facesData = faces
+  </script>
   <script is:inline src="/scripts/hoverEffect.js" type="module"></script>
 </Layout>
 

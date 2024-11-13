@@ -1,4 +1,4 @@
-import { faces } from '../../src/data/faces'
+const faces = window.facesData
 
 // Get all the face nodes(img)
 const facePhotos = document.querySelectorAll('.faceCard img')
